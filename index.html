@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris Pro — Robust Interactive</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Tetris Pro — Robust Interactive</h1>
+      <p>Pure HTML5 Canvas Tetris with modern UI and controls</p>
+    </header>
+
+    <div class="main" aria-label="Tetris game area">
+      <canvas id="gameCanvas" width="320" height="640" aria-label="Tetris board"></canvas>
+      <aside class="sidebar" aria-label="Game info">
+        <div class="panel row">
+          <span class="label">Score</span>
+          <span class="value" id="score">0</span>
+        </div>
+        <div class="panel row">
+          <span class="label">Level</span>
+          <span class="value" id="level">1</span>
+        </div>
+        <div class="panel row">
+          <span class="label">Lines</span>
+          <span class="value" id="lines">0</span>
+        </div>
+        <div class="panel hold-panel">
+          <div class="panel-title">Hold</div>
+          <canvas id="holdCanvas" width="60" height="60" aria-label="Hold piece"></canvas>
+        </div>
+        <div class="panel next-panel">
+          <div class="panel-title">Next</div>
+          <div class="next-grid">
+            <canvas id="next0" width="80" height="80" aria-label="Next piece 1"></canvas>
+            <canvas id="next1" width="80" height="80" aria-label="Next piece 2"></canvas>
+            <canvas id="next2" width="80" height="80" aria-label="Next piece 3"></canvas>
+          </div>
+        </div>
+        <div class="panel controls">
+          <div class="panel-title">Controls</div>
+          <ul class="controls-list">
+            <li>Left/Right: Move</li>
+            <li>Up: Rotate</li>
+            <li>Down: Soft drop</li>
+            <li>Space: Hard drop</li>
+            <li>C: Hold</li>
+            <li>P: Pause</li>
+          </ul>
+        </div>
+        <div class="panel actions">
+          <button id="startBtn" class="btn">Start New Game</button>
+          <button id="pauseBtn" class="btn">Pause</button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="mobile-controls" aria-label="On-screen controls">
+      <button class="btn control" data-action="left">◀</button>
+      <button class="btn control" data-action="rotate">⟲</button>
+      <button class="btn control" data-action="right">▶</button>
+      <button class="btn control" data-action="softDrop">↓</button>
+      <button class="btn control" data-action="hardDrop">⤓</button>
+      <button class="btn control" data-action="hold">Hold</button>
+    </div>
+
+    <div class="overlay" id="overlay" aria-live="polite" style="display:none;">
+      <div class="overlay-content" id="overlayContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
